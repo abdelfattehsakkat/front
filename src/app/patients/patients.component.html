@@ -1,0 +1,66 @@
+<mat-form-field appearance="standard">
+    <mat-label>Recherche</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Nom, Prenom ou tel" #input>
+</mat-form-field>
+
+
+<table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+    class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number"> ID </th>
+        <!-- <td mat-cell *matCellDef="let element"> {{element.id}} </td> -->
+        <td mat-cell *matCellDef="let element; let i = index;">{{i}}</td>
+        <!-- <td mat-cell *matCellDef="let element"> {{dataSource.filteredData.indexOf(element)}} </td> -->
+
+       
+
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="nom">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">Nom</th>
+        <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="prenom">
+        <th mat-header-cell *matHeaderCellDef> Prenom </th>
+        <td mat-cell *matCellDef="let element"> {{element.prenom}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="tel">
+        <th mat-header-cell *matHeaderCellDef> Tel </th>
+        <td mat-cell *matCellDef="let element"> {{element.tel}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fiche">
+        <th mat-header-cell *matHeaderCellDef> Fiche </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-icon>
+                <mat-icon> perm_identity</mat-icon>
+            </mat-icon>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let row">
+            <button mat-icon-button (click)="editPatient((row))">
+                <mat-icon>edit</mat-icon>
+              </button>
+        </td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+</table>

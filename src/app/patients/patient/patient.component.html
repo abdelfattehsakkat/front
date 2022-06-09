@@ -1,0 +1,35 @@
+<div fxFlex fxFlexOffset="20px" class="form-size">
+    <h3>Info patient</h3>
+    <h2>{{data.prenom}} {{data.nom}}</h2>
+    <!-- <p>{{ patientForm.value | json }}</p> -->
+
+    <form novalidate [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+      <p>
+        <mat-form-field class="half-width">
+          <input matInput formControlName="nom" placeholder="Nom" type="text" value="aaaa">
+        </mat-form-field>
+        <mat-form-field class="half-width">
+          <input matInput formControlName="prenom" placeholder="Prenom" type="text">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field class="half-width">
+          <input matInput formControlName="tel" placeholder="Tel. Number" type="tel">
+        </mat-form-field>
+        <mat-form-field class="half-width">
+          <input matInput formControlName="email" placeholder="Email" type="email">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field class="half-width">
+          <input matInput formControlName="dateNaissance" placeholder="Date Naissance" type="date">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field class="full-width">
+          <textarea matInput formControlName="notes" placeholder="Notes" rows=3></textarea>
+        </mat-form-field>
+      </p>
+      <button mat-raised-button class="bt-submit" >Submit</button>
+    </form>
+  </div>

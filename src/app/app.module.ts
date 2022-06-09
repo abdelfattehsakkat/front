@@ -1,16 +1,93 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppComponent } from './app.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+
+
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+
+import 'hammerjs';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
+import { PatientComponent } from './patients/patient/patient.component';
+import { LoginComponent } from './login/login.component';
+import { PatientsComponent } from './patients/patients.component';
+// import { FormulaireComponent } from './_formulaire/formulaire.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    AboutComponent,
+    HomeComponent,
+    PatientComponent,
+    LoginComponent,
+    PatientsComponent,
+    // FormulaireComponent
   ],
   imports: [
-    BrowserModule
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    FlexLayoutModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule, 
+    MatInputModule,
+    MatCheckboxModule,
+    FormsModule,
+    ReactiveFormsModule,
+    Ng2SearchPipeModule,
+    MatTableModule,
+    MatIconModule,
+    MatSnackBarModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    LoginComponent
+  ]
 })
 export class AppModule { }
